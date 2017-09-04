@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+
+    <ImageView
+        android:id="@+id/major2_totalbg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:src="@drawable/total_bg" />
+
+    <ImageView
+        android:id="@+id/major2_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20.8dp"
+        android:layout_y="16.78dp"
+        android:src="@drawable/mainlogo" />
+
+    <TextView
+        android:id="@+id/major2_welcomemsg"
+        android:layout_x="261.157dp"
+        android:layout_y="31.877dp"
+        android:textSize="6pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Welcome, 그래두" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="29.606dp"
+        android:layout_y="82.369dp"
+        android:src="@drawable/major2_text1" />
+
+    <TextView
+        android:id="@+id/major2_text"
+        android:layout_x="65.289dp"
+        android:layout_y="79.159dp"
+        android:textSize="9pt"
+        android:layout_width="80.812dp"
+        android:layout_height="wrap_content"
+        android:text="상담심리" />
+
+    <TextView
+        android:id="@+id/major2_scolarship"
+        android:layout_x="246.376dp"
+        android:layout_y="85.2dp"
+        android:textSize="4pt"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="상담심리사회복지학부" />
+
+    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
+        android:id="@+id/major2_totalcredit"
+        style="@style/CircularBarPagerStyle"
+        android:layout_width="171.991dp"
+        android:layout_height="177.101dp"
+        android:layout_x="159.318dp"
+        android:layout_y="164.303dp" />
+
+    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
+        android:id="@+id/major2_englishcredit"
+        style="@style/CircularBarPagerStyle"
+        android:layout_width="117.101dp"
+        android:layout_height="117.101dp"
+        android:layout_x="187dp"
+        android:layout_y="194.304dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="216.882dp"
+        android:layout_y="239.297dp"
+        android:src="@drawable/major1_semester" />
+
+    <TextView
+        android:id="@+id/major2_mysemester"
+        android:layout_x="220dp"
+        android:layout_y="239.272dp"
+        android:textSize="7pt"
+        android:layout_width="36.317dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="6학기" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="23.305dp"
+        android:layout_y="153.622dp"
+        android:background="#FFFFFF"
+        android:src="@drawable/major2_credit" />
+
+    <TextView
+        android:id="@+id/major2_mycredit"
+        android:layout_x="35.303dp"
+        android:layout_y="197.857dp"
+        android:textSize="20pt"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="24" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="23.305dp"
+        android:layout_y="255.103dp"
+        android:background="#FFFFFF"
+        android:src="@drawable/major1_english" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="29.213dp"
+        android:layout_y="423.144dp"
+        android:src="@drawable/major1_majormap" />
+
+    <ImageButton
+        android:id="@+id/major2_mapbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="25.406dp"
+        android:layout_y="447.147dp"
+        android:background="#FFFFFF"
+        android:src="@drawable/major2_mapbtn" />
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="31.014dp"
+        android:layout_y="618.716dp"
+        android:background="@android:color/transparent"
+        android:onClick="onHomeClicked"
+        android:src="@drawable/homebtn" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="117.635dp"
+        android:layout_y="618.74dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/statbtn_s" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="196.7dp"
+        android:layout_y="618.887dp"
+        android:background="@android:color/transparent"
+        android:onClick="onSimulationClicked"
+        android:src="@drawable/simbtn" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="290.59dp"
+        android:layout_y="619.965dp"
+        android:background="@android:color/transparent"
+        android:onClick="onMypageClicked"
+        android:src="@drawable/pagebtn" />
+
+</AbsoluteLayout>
