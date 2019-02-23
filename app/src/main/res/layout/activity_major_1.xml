@@ -1,81 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="a3pmplusalpha.gradu.major_1">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/mainlogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="20.8dp"
-        android:layout_y="16.78dp"
-        android:src="@drawable/mainlogo" />
+    <include
+        layout="@layout/title"/>
 
-    <TextView
-        android:id="@+id/welcomemsg"
-        android:layout_x="261.157dp"
-        android:layout_y="31.877dp"
-        android:textSize="5pt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome, 그래두" />
+    <!--<com.github.OrangeGangsters.circularbarpager.library.CircularBarPager-->
+        <!--android:id="@+id/major1_totalcredit"-->
+        <!--style="@style/CircularBarPagerStyle"-->
+        <!--android:layout_width="171.991dp"-->
+        <!--android:layout_height="177.101dp"-->
+        <!--android:layout_x="29.153dp"-->
+        <!--android:layout_y="164.303dp" />-->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="29.606dp"
-        android:layout_y="82.369dp"
-        android:src="@drawable/major1_text1" />
-
-    <TextView
-        android:id="@+id/major1_text"
-        android:layout_x="65.289dp"
-        android:layout_y="74.159dp"
-        android:textSize="8pt"
-        android:layout_width="82dp"
-        android:layout_height="wrap_content"
-        android:text="시각디자인" />
-
-    <TextView
-        android:id="@+id/major1_scolarship"
-        android:layout_x="246.376dp"
-        android:layout_y="85.2dp"
-        android:textSize="4pt"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:text="콘텐츠융합디자인학부" />
-
-    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
-        android:id="@+id/major1_totalcredit"
-        style="@style/CircularBarPagerStyle"
-        android:layout_width="171.991dp"
-        android:layout_height="177.101dp"
-        android:layout_x="29.153dp"
-        android:layout_y="164.303dp" />
-
-    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
-        android:id="@+id/major1_englishcredit"
-        style="@style/CircularBarPagerStyle"
-        android:layout_width="117.101dp"
-        android:layout_height="117.101dp"
-        android:layout_x="54.043dp"
-        android:layout_y="194.304dp" />
+    <!--<com.github.OrangeGangsters.circularbarpager.library.CircularBarPager-->
+        <!--android:id="@+id/major1_englishcredit"-->
+        <!--style="@style/CircularBarPagerStyle"-->
+        <!--android:layout_width="117.101dp"-->
+        <!--android:layout_height="117.101dp/>-->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="81.601dp"
-        android:layout_y="241.679dp"
         android:src="@drawable/major1_semester" />
 
     <TextView
         android:id="@+id/major1_mysemester"
-        android:layout_x="82.864dp"
-        android:layout_y="234.272dp"
         android:textSize="7pt"
         android:layout_width="40dp"
         android:layout_height="18dp"
@@ -85,80 +40,34 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="223.407dp"
-        android:layout_y="153.622dp"
         android:background="#FFFFFF"
         android:src="@drawable/major1_credit" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="223.407dp"
-        android:layout_y="255.077dp"
         android:background="#FFFFFF"
         android:src="@drawable/major1_english" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="29.213dp"
-        android:layout_y="423.144dp"
         android:src="@drawable/major1_majormap" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="25.406dp"
-        android:layout_y="447.147dp"
         android:background="#FFFFFF"
         android:src="@drawable/major1_mapbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="31.014dp"
-        android:layout_y="618.716dp"
-        android:background="#FFFFFF"
-        android:onClick="onHomeClicked"
-        android:src="@drawable/homebtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="117.635dp"
-        android:layout_y="618.74dp"
-        android:src="@drawable/statbtn_s"
-        android:background="#FFFFFF"
-        />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="196.7dp"
-        android:layout_y="618.887dp"
-        android:background="#FFFFFF"
-        android:onClick="onSimulationClicked"
-        android:src="@drawable/simbtn" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="290dp"
-        android:layout_y="619.965dp"
-        android:background="#FFFFFF"
-        android:onClick="onMypageClicked"
-        android:src="@drawable/pagebtn" />
 
     <TextView
         android:id="@+id/major1_mycredit"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
-        android:layout_x="230dp"
-        android:layout_y="191dp"
         android:gravity="end"
         android:text="24"
         android:textSize="20pt" />
 
-
-</AbsoluteLayout>
+    <include
+        layout="@layout/bottom_navigation"/>
+</LinearLayout>

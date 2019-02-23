@@ -1,79 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    >
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/totalbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="0dp"
-        android:layout_y="0dp"
-        android:src="@drawable/total_bg" />
+    <include
+        layout="@layout/title"/>
 
-    <ImageView
-        android:id="@+id/mypage_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="20.8dp"
-        android:layout_y="16.78dp"
-        android:src="@drawable/mainlogo" />
-
-    <TextView
-        android:id="@+id/welcomemsg"
-        android:layout_x="261.157dp"
-        android:layout_y="31.877dp"
-        android:textSize="6pt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="Welcome, 그래두" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="29.606dp"
-        android:layout_y="82.369dp"
-        android:src="@drawable/refinement_titletext" />
-
-    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
+    <!--<com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
         android:id="@+id/refinement_total"
         style="@style/CircularBarPagerStyle"
         android:layout_width="202.453dp"
-        android:layout_height="202.453dp"
-        android:layout_x="78.773dp"
-        android:layout_y="140.455dp" />
+        android:layout_height="202.453dp"/>-->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="156.207dp"
-        android:layout_y="197.503dp"
         android:src="@drawable/refinement_credittext" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="160.39dp"
-        android:layout_y="274.995dp"
         android:src="@drawable/refinement_of74" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="14.801dp"
-        android:layout_y="373.05dp"
         android:src="@drawable/refinement_normal" />
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
+    <!--<me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/refinement_normalgraph"
         android:layout_width="76.471dp"
         android:layout_height="wrap_content"
-        android:layout_x="57.676dp"
-        android:layout_y="416.193dp"
         android:layout_gravity="center_horizontal"
         app:cs_negative_enabled="true"
         app:cs_max="40"
@@ -88,22 +49,18 @@
         app:cs_end_angle="0"
         app:cs_circle_progress_color="#43BFF0"
         app:cs_circle_color="#F6F6F6"
-        />
+        />-->
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="183.017dp"
-        android:layout_y="373.05dp"
         android:src="@drawable/refinement_global" />
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
+    <!--<me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/refinement_globalgraph"
         android:layout_width="76.471dp"
         android:layout_height="wrap_content"
-        android:layout_x="225.892dp"
-        android:layout_y="416.193dp"
         android:layout_gravity="center_horizontal"
         app:cs_negative_enabled="true"
         app:cs_max="23"
@@ -117,56 +74,19 @@
         app:cs_start_angle="180"
         app:cs_end_angle="0"
         app:cs_circle_progress_color="#9AC717"
-        app:cs_circle_color="#F6F6F6"
-        />
+        app:cs_circle_color="#F6F6F6" />-->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="14.762dp"
-        android:layout_y="493.357dp"
         android:src="@drawable/refinement_free" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="14.762dp"
-        android:layout_y="536.809dp"
         android:src="@drawable/refinement_english" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="31.014dp"
-        android:layout_y="618.716dp"
-        android:background="@android:color/transparent"
-        android:onClick="onHomeClicked"
-        android:src="@drawable/homebtn" />
+    <include
+        layout="@layout/bottom_navigation"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="117.635dp"
-        android:layout_y="618.74dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/statbtn_s" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="196.7dp"
-        android:layout_y="618.887dp"
-        android:background="@android:color/transparent"
-        android:onClick="onSimulationClicked"
-        android:src="@drawable/simbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="290.59dp"
-        android:layout_y="619.965dp"
-        android:background="@android:color/transparent"
-        android:onClick="onMypageClicked"
-        android:src="@drawable/pagebtn" />
-
-</AbsoluteLayout>
+</LinearLayout>

@@ -1,43 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    >
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/totalbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="0dp"
-        android:layout_y="0dp"
-        android:src="@drawable/total_bg" />
-
-    <ImageView
-        android:id="@+id/mypage_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="20.8dp"
-        android:layout_y="16.78dp"
-        android:src="@drawable/mainlogo" />
-
-    <TextView
-        android:id="@+id/welcomemsg"
-        android:layout_x="261.157dp"
-        android:layout_y="31.877dp"
-        android:textSize="6pt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="Welcome, 그래두" />
-
-    <ImageView
-        android:id="@+id/mypage_titletxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="29.397dp"
-        android:layout_y="79.196dp"
-        android:src="@drawable/mypage_titletext" />
+    <include
+        layout="@layout/title"/>
 
     <ImageButton
         android:id="@+id/mypage_myprofile"
@@ -65,41 +34,7 @@
         android:onClick="onLogoutClicked"
         android:src="@drawable/mypage_logout" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="31.014dp"
-        android:layout_y="618.716dp"
-        android:background="@android:color/transparent"
-        android:onClick="onHomeClicked"
-        android:src="@drawable/homebtn" />
+    <include
+        layout="@layout/bottom_navigation"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="117.635dp"
-        android:layout_y="618.74dp"
-        android:background="@android:color/transparent"
-        android:onClick="onStatusClicked"
-        android:src="@drawable/statbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="196.7dp"
-        android:layout_y="618.887dp"
-        android:background="@android:color/transparent"
-        android:onClick="onSimulationClicked"
-        android:src="@drawable/simbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="290.59dp"
-        android:layout_y="619.965dp"
-        android:src="@drawable/pagebtn_s"
-        android:background="@android:color/transparent" />
-
-
-
-</AbsoluteLayout>
+</LinearLayout>

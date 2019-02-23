@@ -1,49 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
+g<?xml version="1.0" encoding="utf-8"?>
 
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#FFFFFF"
     >
 
-    <ImageView
-        android:id="@+id/home_bg"
-        android:layout_width="411.5dp"
-        android:layout_height="674.542dp"
-        android:layout_x="0dp"
-        android:layout_y="19.154dp"
-        android:src="@drawable/total_bg" />
-
-    <TextView
-        android:id="@+id/welcomemsg"
-        android:layout_x="298.099dp"
-        android:layout_y="36.387dp"
-        android:textSize="6pt"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="Welcome, 그래두" />
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="32.969dp"
-        android:layout_y="90.728dp"
-        android:src="@drawable/home_title"/>
+        <ImageView
+            android:id="@+id/logo_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
-        android:id="@+id/home_total_credit"
-        style="@style/CircularBarPagerStyle"
-        android:layout_width="276.342dp"
-        android:layout_height="276.342dp"
-        android:layout_x="67.29dp"
-        android:layout_y="156.173dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/welcome_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome, 그래두"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="총 이수학점"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--<com.github.OrangeGangsters.circularbarpager.library.CircularBarPager-->
+        <!--android:id="@+id/home_total_credit"-->
+        <!--style="@style/CircularBarPagerStyle"-->
+        <!--android:layout_width="276.342dp"-->
+        <!--android:layout_height="276.342dp"-->
+        <!--android:layout_x="67.29dp"-->
+        <!--android:layout_y="156.173dp" />-->
 
     <TextView
         android:id="@+id/semester"
-        android:layout_x="188.33dp"
-        android:layout_y="217.028dp"
         android:textSize="5pt"
         android:layout_width="16dp"
         android:layout_height="wrap_content"
@@ -52,8 +57,6 @@
 
     <TextView
         android:id="@+id/centername"
-        android:layout_x="174.642dp"
-        android:layout_y="233.998dp"
         android:textSize="8pt"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
@@ -64,8 +67,6 @@
         android:id="@+id/currentcredit"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_x="164.517dp"
-        android:layout_y="279.86dp"
         android:textSize="20pt"
         android:gravity="center"
         android:text="120" />
@@ -74,8 +75,6 @@
         android:id="@+id/totalcredit"
         android:layout_width="68dp"
         android:layout_height="wrap_content"
-        android:layout_x="168.742dp"
-        android:layout_y="334.901dp"
         android:textSize="12pt"
         android:gravity="center"
         android:text="of 140" />
@@ -83,161 +82,89 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="16.839dp"
-        android:layout_y="485.872dp"
         android:src="@drawable/home_creditbg"/>
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
-        android:id="@+id/home_first_graph"
-        android:layout_width="87.288dp"
-        android:layout_height="wrap_content"
-        android:layout_x="34.723dp"
-        android:layout_y="573.696dp"
-        android:layout_gravity="center_horizontal"
-        app:cs_negative_enabled="true"
-        app:cs_max="33"
-        app:cs_disable_pointer="true"
-        app:cs_lock_enabled="false"
-        app:cs_progress="24"
-        app:cs_circle_style="round"
-        app:cs_circle_stroke_width="5dp"
-        app:cs_pointer_stroke_width="5dp"
-        app:cs_pointer_angle="0"
-        app:cs_start_angle="180"
-        app:cs_end_angle="0"
-        app:cs_circle_progress_color="#43BFF0"
-        app:cs_circle_color="#F6F6F6"
-        />
-
-    <ImageButton
-        android:id="@+id/home_firstgraphwrap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="16.839dp"
-        android:layout_y="511.807dp"
-        android:background="@android:color/transparent"
-        android:onClick="onMajor1Clicked"
-        android:src="@drawable/home_graphrap" />
+    <!--<me.tankery.lib.circularseekbar.CircularSeekBar-->
+        <!--android:id="@+id/home_first_graph"-->
+        <!--android:layout_width="87.288dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--app:cs_negative_enabled="true"-->
+        <!--app:cs_max="33"-->
+        <!--app:cs_disable_pointer="true"-->
+        <!--app:cs_lock_enabled="false"-->
+        <!--app:cs_progress="24"-->
+        <!--app:cs_circle_style="round"-->
+        <!--app:cs_circle_stroke_width="5dp"-->
+        <!--app:cs_pointer_stroke_width="5dp"-->
+        <!--app:cs_pointer_angle="0"-->
+        <!--app:cs_start_angle="180"-->
+        <!--app:cs_end_angle="0"-->
+        <!--app:cs_circle_progress_color="#43BFF0"-->
+        <!--app:cs_circle_color="#F6F6F6"-->
+        <!--/>-->
 
     <TextView
         android:id="@+id/home_firstcredit"
         android:layout_width="60dp"
         android:layout_height="10.297dp"
-        android:layout_x="49.874dp"
-        android:layout_y="544.134dp"
         android:textSize="5pt"
         android:gravity="center"
         android:text="시각디자인" />
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
-        android:id="@+id/home_second_graph"
-        android:layout_width="87.288dp"
-        android:layout_height="wrap_content"
-        android:layout_x="161.806dp"
-        android:layout_y="573.696dp"
-        android:layout_gravity="center_horizontal"
-        app:cs_negative_enabled="true"
-        app:cs_max="33"
-        app:cs_disable_pointer="true"
-        app:cs_lock_enabled="false"
-        app:cs_progress="30"
-        app:cs_circle_style="round"
-        app:cs_circle_stroke_width="5dp"
-        app:cs_pointer_stroke_width="5dp"
-        app:cs_pointer_angle="0"
-        app:cs_start_angle="180"
-        app:cs_end_angle="0"
-        app:cs_circle_progress_color="#9AC717"
-        app:cs_circle_color="#F6F6F6"
-        />
-
-    <ImageButton
-        android:id="@+id/home_secondgraphwrap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="143.922dp"
-        android:layout_y="511.807dp"
-        android:background="@android:color/transparent"
-        android:onClick="onMajor2Clicked"
-        android:src="@drawable/home_graphrap"/>
+    <!--<me.tankery.lib.circularseekbar.CircularSeekBar-->
+        <!--android:id="@+id/home_second_graph"-->
+        <!--android:layout_width="87.288dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_x="161.806dp"-->
+        <!--android:layout_y="573.696dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--app:cs_negative_enabled="true"-->
+        <!--app:cs_max="33"-->
+        <!--app:cs_disable_pointer="true"-->
+        <!--app:cs_lock_enabled="false"-->
+        <!--app:cs_progress="30"-->
+        <!--app:cs_circle_style="round"-->
+        <!--app:cs_circle_stroke_width="5dp"-->
+        <!--app:cs_pointer_stroke_width="5dp"-->
+        <!--app:cs_pointer_angle="0"-->
+        <!--app:cs_start_angle="180"-->
+        <!--app:cs_end_angle="0"-->
+        <!--app:cs_circle_progress_color="#9AC717"-->
+        <!--app:cs_circle_color="#F6F6F6"-->
+        <!--/>-->
 
     <TextView
         android:id="@+id/home_secondcredit"
         android:layout_width="60dp"
         android:layout_height="15dp"
-        android:layout_x="182.849dp"
-        android:layout_y="544.121dp"
         android:textSize="5pt"
         android:gravity="center"
         android:text="상담심리" />
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
-        android:id="@+id/home_third_graph"
-        android:layout_width="87.288dp"
-        android:layout_height="wrap_content"
-        android:layout_x="288.912dp"
-        android:layout_y="573.696dp"
-        android:layout_gravity="center_horizontal"
-        app:cs_negative_enabled="true"
-        app:cs_max="74"
-        app:cs_disable_pointer="true"
-        app:cs_lock_enabled="false"
-        app:cs_progress="66"
-        app:cs_circle_style="round"
-        app:cs_circle_stroke_width="5dp"
-        app:cs_pointer_stroke_width="5dp"
-        app:cs_pointer_angle="0"
-        app:cs_start_angle="180"
-        app:cs_end_angle="0"
-        app:cs_circle_progress_color="#C1A1CA"
-        app:cs_circle_color="#F6F6F6"
-        />
+    <!--<me.tankery.lib.circularseekbar.CircularSeekBar-->
+        <!--android:id="@+id/home_third_graph"-->
+        <!--android:layout_width="87.288dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_x="288.912dp"-->
+        <!--android:layout_y="573.696dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--app:cs_negative_enabled="true"-->
+        <!--app:cs_max="74"-->
+        <!--app:cs_disable_pointer="true"-->
+        <!--app:cs_lock_enabled="false"-->
+        <!--app:cs_progress="66"-->
+        <!--app:cs_circle_style="round"-->
+        <!--app:cs_circle_stroke_width="5dp"-->
+        <!--app:cs_pointer_stroke_width="5dp"-->
+        <!--app:cs_pointer_angle="0"-->
+        <!--app:cs_start_angle="180"-->
+        <!--app:cs_end_angle="0"-->
+        <!--app:cs_circle_progress_color="#C1A1CA"-->
+        <!--app:cs_circle_color="#F6F6F6"-->
+        <!--/>-->
 
-    <ImageButton
-        android:id="@+id/home_thirdgraphwrap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="271.028dp"
-        android:layout_y="511.807dp"
-        android:background="@android:color/transparent"
-        android:onClick="onRefinementClicked"
-        android:src="@drawable/home_graphrap"/>
+    <include
+        layout="@layout/bottom_navigation"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="35.401dp"
-        android:layout_y="706.235dp"
-        android:src = "@drawable/homebtn_s"
-        android:background="#FFFFFF"
-        />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="134.275dp"
-        android:layout_y="706.263dp"
-        android:background="#FFFFFF"
-        android:onClick="onMajor1Clicked"
-        android:src="@drawable/statbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="224.524dp"
-        android:layout_y="706.43dp"
-        android:background="#FFFFFF"
-        android:onClick="onSimulationClicked"
-        android:src="@drawable/simbtn" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="331.695dp"
-        android:layout_y="706.662dp"
-        android:src="@drawable/pagebtn"
-        android:onClick="onMypageClicked"
-        android:background="#FFFFFF" />
-
-
-</AbsoluteLayout>
+</LinearLayout>
