@@ -1,6 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext {
+        glide_version = "4.8.0"
+    }
     repositories {
         jcenter()
         google()
@@ -14,7 +17,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'http://dl.bintray.com/populov/maven/' }
+        mavenCentral()
         jcenter()
         google()
     }
