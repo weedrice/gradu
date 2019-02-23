@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:weightSum="4"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:padding="@dimen/space_small">
 
     <ImageView
+        android:id="@+id/iv_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@drawable/homebtn" />
+        android:src="@drawable/img_home"
+        android:layout_weight="1"/>
 
     <ImageView
+        android:id="@+id/iv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@drawable/statbtn" />
+        android:src="@drawable/img_status"
+        android:layout_weight="1"/>
 
     <ImageView
+        android:id="@+id/iv_simulation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/simbtn_s"
-        android:layout_weight="1" />
+        android:src="@drawable/img_simulation"
+        android:layout_weight="1"/>
 
     <ImageView
+        android:id="@+id/iv_my_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@drawable/pagebtn" />
+        android:src="@drawable/img_mypage"
+        android:layout_weight="1"/>
 
 </LinearLayout>
