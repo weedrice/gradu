@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <include
-        layout="@layout/title"/>
+        layout="@layout/layout_header"/>
 
     <ImageButton
         android:id="@+id/mypage_myprofile"

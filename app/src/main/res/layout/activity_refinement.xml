@@ -8,7 +8,7 @@
     android:background="#FFFFFF">
 
     <include
-        layout="@layout/title"/>
+        layout="@layout/layout_header"/>
 
     <!--<com.github.OrangeGangsters.circularbarpager.library.CircularBarPager
         android:id="@+id/refinement_total"
