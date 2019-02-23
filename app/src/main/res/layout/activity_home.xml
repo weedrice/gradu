@@ -26,7 +26,7 @@
 
         <include
             android:id="@+id/ll_bottom_navigation"
-            layout="@layout/bottom_navigation"/>
+            layout="@layout/layout_bottom_navigation"/>
 
     </LinearLayout>
 </layout>

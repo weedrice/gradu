@@ -12,4 +12,6 @@
     <color name="black">#000000</color>
     <color name="black_opacity_87">#de000000</color>
     <color name="black_opacity_60">#99727171</color>
+    <color name="gray_light">f9fafb</color>
+    <color name="gray_strong">d3d3d2</color>
 </resources>
