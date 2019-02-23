@@ -1,91 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    >
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFFFFF">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="106.737dp"
-        android:layout_y="156.093dp"
         android:src="@drawable/login_logo"/>
-
-    <ImageView
-        android:id="@+id/login_idbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="42.161dp"
-        android:layout_y="345.728dp"
-        android:src="@drawable/login_bg" />
 
     <EditText
         android:id="@+id/login_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="70.581dp"
-        android:layout_y="366.645dp"
         android:background="@android:color/transparent"
         android:ems="10"
         android:hint="Hisnet ID"
         android:inputType="textPersonName" />
 
-    <ImageView
-        android:id="@+id/login_pwbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="42.161dp"
-        android:layout_y="419.84dp"
-        android:src="@drawable/login_bg" />
-
     <EditText
         android:id="@+id/login_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="70.581dp"
-        android:layout_y="441.211dp"
         android:background="@android:color/transparent"
         android:ems="10"
         android:hint="PW"
         android:inputType="textPassword" />
 
-
-
-    <ImageButton
-        android:id="@+id/login_saveid"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="84.127dp"
-        android:layout_y="505.453dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/saveid" />
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/login_savelogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="229.016dp"
-        android:layout_y="505.453dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/savelogin" />
+        <ImageView
+            android:id="@+id/login_saveid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/saveid" />
+
+        <ImageView
+            android:id="@+id/login_savelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/savelogin" />
 
 
-    <ImageButton
+    </LinearLayout>
+
+    <ImageView
         android:id="@+id/login_loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="119.104dp"
-        android:layout_y="565.352dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:onClick="onLoginButtonClicked"
         android:scaleType="fitCenter"
         android:src="@drawable/loginbtn" />
 
-</AbsoluteLayout>
+</LinearLayout>

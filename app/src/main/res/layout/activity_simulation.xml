@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    >
-
-    <ImageView
-        android:id="@+id/home_bg"
-        android:layout_width="411.5dp"
-        android:layout_height="674.542dp"
-        android:layout_x="0dp"
-        android:layout_y="19.154dp"
-        android:src="@drawable/total_bg" />
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/sim_welcomemsg"
-        android:layout_x="261.157dp"
-        android:layout_y="31.877dp"
         android:textSize="6pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,32 +18,24 @@
         android:id="@+id/sim_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="28.898dp"
-        android:layout_y="79.206dp"
         android:src="@drawable/simulation_title" />
 
     <ImageView
         android:id="@+id/sim_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="33.481dp"
-        android:layout_y="249.222dp"
         android:src="@drawable/simulation_level" />
 
     <ImageView
         android:id="@+id/sim_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="33.722dp"
-        android:layout_y="301.593dp"
         android:src="@drawable/simulation_amount" />
 
     <ImageButton
         android:id="@+id/sim_major1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="15.834dp"
-        android:layout_y="418.573dp"
         android:background="@android:color/transparent"
         android:src="@drawable/simulation_major1" />
 
@@ -60,8 +43,6 @@
         android:id="@+id/sim_major2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="129.371dp"
-        android:layout_y="418.573dp"
         android:background="@android:color/transparent"
         android:src="@drawable/simulation_major2" />
 
@@ -69,8 +50,6 @@
         android:id="@+id/sim_refinement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="242.906dp"
-        android:layout_y="418.573dp"
         android:background="@android:color/transparent"
         android:src="@drawable/simulation_refinement" />
 
@@ -78,15 +57,11 @@
         android:id="@+id/sim_divide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="123.232dp"
-        android:layout_y="469.1dp"
         android:src="@drawable/simulation_divide" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="35.401dp"
-        android:layout_y="706.235dp"
         android:background="@android:color/transparent"
         android:onClick="onHomeClicked"
         android:src="@drawable/homebtn" />
@@ -94,8 +69,6 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="134.275dp"
-        android:layout_y="706.263dp"
         android:background="@android:color/transparent"
         android:onClick="onStatusClicked"
         android:src="@drawable/statbtn" />
@@ -103,16 +76,12 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="224.524dp"
-        android:layout_y="706.43dp"
         android:src="@drawable/simbtn_s"
         android:background="@android:color/transparent" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="331.695dp"
-        android:layout_y="706.662dp"
         android:background="@android:color/transparent"
         android:onClick="onMypageClicked"
         android:src="@drawable/pagebtn" />
@@ -121,9 +90,6 @@
         android:id="@+id/sim_selectsemester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_x="33.481dp"
-        android:layout_y="124.692dp"
         android:background="#FFFFFF"
         android:gravity="center" />
-
-</AbsoluteLayout>
+</LinearLayout>
