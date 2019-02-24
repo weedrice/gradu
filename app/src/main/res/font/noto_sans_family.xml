@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedAttribute">
+
+    <!-- thin -->
+    <font
+        android:font="@font/NotoSansCJKkr_Thin"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Thin"
+        app:fontStyle="normal"
+        app:fontWeight="100" />
+
+    <!-- light -->
+    <font
+        android:font="@font/NotoSansCJKkr_Light"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Light"
+        app:fontStyle="normal"
+        app:fontWeight="200" />
+
+    <!-- demilight -->
+    <font
+        android:font="@font/NotoSansCJKkr_DemiLight"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_DemiLight"
+        app:fontStyle="normal"
+        app:fontWeight="300" />
+
+    <font
+        android:font="@font/NotoSansCJKkr_Regular"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Regular"
+        app:fontStyle="normal"
+        app:fontWeight="400" />
+
+    <font
+        android:font="@font/NotoSansCJKkr_Medium"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Medium"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+    <font
+        android:font="@font/NotoSansCJKkr_Bold"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Bold"
+        app:fontStyle="normal"
+        app:fontWeight="600" />
+
+    <font
+        android:font="@font/NotoSansCJKkr_Black"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansCJKkr_Black"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/NotoSansMonoCJKkr_Bold"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansMonoCJKkr_Bold"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+
+    <font
+        android:font="@font/NotoSansMonoCJKkr_Regular"
+        android:fontStyle="normal"
+        app:font="@font/NotoSansMonoCJKkr_Regular"
+        app:fontStyle="normal"
+        app:fontWeight="600" />
+
+</font-family>

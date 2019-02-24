@@ -1,69 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#FFFFFF"
     android:gravity="center"
-    android:background="#FFFFFF">
+    android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/iv_login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login_logo"/>
+        android:src="@drawable/img_logo_big"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
 
     <EditText
-        android:id="@+id/login_id"
+        android:id="@+id/et_login_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:hint="Hisnet ID"
-        android:inputType="textPersonName" />
+        android:background="@drawable/shape_round_square"
+        android:hint="@string/id_hint"
+        app:layout_constraintBottom_toTopOf="@id/et_login_pw"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_login_logo" />
 
     <EditText
-        android:id="@+id/login_pw"
+        android:id="@+id/et_login_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:hint="PW"
-        android:inputType="textPassword" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/login_saveid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/saveid" />
-
-        <ImageView
-            android:id="@+id/login_savelogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/savelogin" />
-
-
-    </LinearLayout>
+        android:background="@drawable/shape_round_square"
+        android:hint="@string/pw_hint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_login_id" />
 
     <ImageView
-        android:id="@+id/login_loginbtn"
+        android:id="@+id/iv_save_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_save_id"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_always_login"
+        app:layout_constraintTop_toBottomOf="@id/et_login_pw"/>
+
+    <ImageView
+        android:id="@+id/iv_always_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:onClick="onLoginButtonClicked"
-        android:scaleType="fitCenter"
-        android:src="@drawable/loginbtn" />
+        android:src="@drawable/btn_always_login"
+        app:layout_constraintTop_toBottomOf="@id/et_login_pw"
+        app:layout_constraintLeft_toRightOf="@id/iv_save_id"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_always_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/btn_login"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
