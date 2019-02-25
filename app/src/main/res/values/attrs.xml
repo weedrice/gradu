@@ -3,9 +3,9 @@
     <declare-styleable name="CustomProgressBar">
         <attr name="min" format="integer" />
         <attr name="max" format="integer" />
-        <attr name="progressing" format="integer" />
         <attr name="progressbarColor" format="color" />
         <attr name="progressBarThickness" format="dimension" />
+        <attr name="progressing" format="float"/>
 
     </declare-styleable>
 </resources>
