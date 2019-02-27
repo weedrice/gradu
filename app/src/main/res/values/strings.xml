@@ -2,7 +2,7 @@
     <string name="app_name">Gradu</string>
     <string name="title_activity_test">test</string>
     <string name="action_settings">Settings</string>
-    <string name="welcome_msg">Welcome, 그래두</string>
+    <string name="welcome_msg">Welcome, </string>
     <string name="id_hint">Hisnet ID</string>
     <string name="pw_hint">Hisnet Password</string>
     <string-array name="planets_array">
