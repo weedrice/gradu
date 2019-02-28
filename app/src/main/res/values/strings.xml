@@ -9,6 +9,8 @@
     <string name="home_credit_hint">언제 졸업하지?</string>
     <string name="home_credit_title">이수학점</string>
     <string name="home_credit_subtitle">더 자세히 알아보기</string>
+    <string name="my_page_title">마이페이지</string>
+    <string name="my_page_version">ver 1.0</string>
     <string-array name="planets_array">
         <item>2017-2</item>
         <item>2018-1</item>
