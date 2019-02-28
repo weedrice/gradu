@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_home_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/white">
 
         <TextView
@@ -18,42 +18,45 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_bold"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:layout_margin="@dimen/space_large"
-            tools:text="총 이수학점"
+            android:text="@string/home_credit_guide"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_home_subtitle"/>
 
         <TextView
             android:id="@+id/tv_home_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="12sp"
             android:textColor="@color/black_opacity_60"
-            android:layout_marginLeft="@dimen/space_small"
+            android:layout_marginLeft="@dimen/space_x_small"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_home_title"
-            tools:text="언제 졸업하지?"
-            app:layout_constraintLeft_toRightOf="@id/tv_home_title"
+            android:text="@string/home_credit_hint"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cp_home_graph"/>
+            app:layout_constraintLeft_toRightOf="@id/tv_home_title" />
 
         <me.tankery.lib.circularseekbar.CircularSeekBar
             android:id="@+id/cp_home_graph"
             android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:layout_margin="@dimen/space_x_large"
+            android:layout_height="242dp"
             app:cs_lock_enabled="true"
+            app:cs_disable_progress_glow="true"
+            app:cs_circle_stroke_width="@dimen/circle_width_median"
             app:layout_constraintTop_toBottomOf="@id/tv_home_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_bottom_graphs"/>
+            app:layout_constraintBottom_toTopOf="@id/tv_credit_title"/>
 
         <TextView
             android:id="@+id/tv_semester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_regular"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@color/black"
+            android:includeFontPadding="false"
             tools:text="6학기"
             app:layout_constraintLeft_toLeftOf="@id/cp_home_graph"
             app:layout_constraintRight_toRightOf="@id/cp_home_graph"
@@ -65,11 +68,12 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:fontFamily="@font/noto_bold"
-            android:textSize="25sp"
+            android:textSize="17sp"
+            android:includeFontPadding="false"
             tools:text="그래두"
-            app:layout_constraintBottom_toTopOf="@id/tv_home_credit"
             app:layout_constraintLeft_toLeftOf="@id/cp_home_graph"
-            app:layout_constraintRight_toRightOf="@id/cp_home_graph"/>
+            app:layout_constraintRight_toRightOf="@id/cp_home_graph"
+            app:layout_constraintBottom_toTopOf="@id/tv_home_credit"/>
 
         <TextView
             android:id="@+id/tv_home_credit"
@@ -77,8 +81,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:fontFamily="@font/noto_bold"
-            android:textSize="70sp"
+            android:textSize="38sp"
             tools:text="114"
+            android:includeFontPadding="false"
             app:layout_constraintTop_toTopOf="@id/cp_home_graph"
             app:layout_constraintLeft_toLeftOf="@id/cp_home_graph"
             app:layout_constraintRight_toRightOf="@id/cp_home_graph"
@@ -89,25 +94,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="40sp"
+            android:textSize="18sp"
             android:fontFamily="@font/noto_light"
+            android:includeFontPadding="false"
             tools:text="of 140"
             app:layout_constraintLeft_toLeftOf="@id/cp_home_graph"
             app:layout_constraintRight_toRightOf="@id/cp_home_graph"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_credit"
-            app:layout_constraintBottom_toBottomOf="@id/cp_home_graph"
-            app:layout_constraintVertical_bias="0"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_home_credit"/>
 
         <TextView
             android:id="@+id/tv_credit_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="12sp"
             android:layout_marginLeft="@dimen/space_large"
-            android:layout_marginBottom="@dimen/space_median"
             android:fontFamily="@font/noto_bold"
-            tools:text="이수학점"
+            android:text="@string/home_credit_title"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tv_credit_subtitle"
             app:layout_constraintBottom_toTopOf="@id/ll_bottom_graphs"/>
@@ -117,7 +120,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_small"
-            tools:text="더 자세히 알아보기"
+            android:textSize="11.5sp"
+            android:text="@string/home_credit_subtitle"
             app:layout_constraintLeft_toRightOf="@id/tv_credit_title"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_credit_title"/>
 
@@ -125,13 +129,19 @@
             android:id="@+id/ll_bottom_graphs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cp_home_graph"
+            android:layout_marginBottom="@dimen/space_large"
+            android:weightSum="3"
+            android:gravity="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <include
                 android:id="@+id/cl_major_one"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/space_small"
+                android:layout_weight="1"
                 layout="@layout/layout_bottom_graph"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -140,6 +150,11 @@
 
             <include
                 android:id="@+id/cl_major_two"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_small"
                 layout="@layout/layout_bottom_graph"
                 app:layout_constraintLeft_toRightOf="@id/cl_major_one"
                 app:layout_constraintTop_toBottomOf="@id/tv_credit_title"
@@ -148,6 +163,10 @@
 
             <include
                 android:id="@+id/cl_refinement"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/space_median"
                 layout="@layout/layout_bottom_graph"
                 app:layout_constraintLeft_toRightOf="@id/cl_major_two"
                 app:layout_constraintRight_toRightOf="parent"

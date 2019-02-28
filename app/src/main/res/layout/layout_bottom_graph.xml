@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white">
+    android:layout_margin="@dimen/space_median"
+    android:background="@drawable/shape_round_square">
 
     <TextView
         android:id="@+id/tv_graph_description"
@@ -13,8 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_small"
         android:textColor="@color/black_opacity_60"
+        android:includeFontPadding="false"
         android:textSize="10sp"
-        tools:text="1전공"
+        android:text="1전공"
         app:layout_constraintBottom_toTopOf="@id/tv_graph_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +28,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:fontFamily="@font/noto_bold"
-        tools:text="시각디자인"
+        android:includeFontPadding="false"
+        android:textSize="13sp"
+        android:text="시각디자인"
         app:layout_constraintTop_toBottomOf="@id/tv_graph_description"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -35,34 +39,42 @@
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/cp_graph"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="@dimen/space_median"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/circle_width_small"
+        app:cs_pointer_angle="0"
+        app:cs_start_angle="180"
+        app:cs_end_angle="0"
+        app:cs_lock_enabled="true"
+        app:cs_disable_pointer="true"
+        app:cs_disable_progress_glow="true"
+        app:cs_circle_stroke_width="@dimen/circle_width_small"
         app:layout_constraintTop_toBottomOf="@id/tv_graph_title"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
         android:id="@+id/tv_credit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:layout_marginTop="@dimen/space_median"
         android:textSize="30sp"
-        android:fontFamily="@font/noto_regular"
-        tools:text="24"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:text="24"
         app:layout_constraintLeft_toLeftOf="@id/cp_graph"
         app:layout_constraintRight_toRightOf="@id/cp_graph"
-        app:layout_constraintTop_toTopOf="@id/cp_graph"
-        app:layout_constraintBottom_toBottomOf="@id/cp_graph"/>
+        app:layout_constraintTop_toTopOf="@id/cp_graph"/>
 
     <TextView
         android:id="@+id/tv_total_credit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="15sp"
-        android:fontFamily="@font/noto_regular"
-        tools:text="of 33"
+        android:textSize="18sp"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:text="of 33"
         app:layout_constraintTop_toBottomOf="@id/tv_credit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
