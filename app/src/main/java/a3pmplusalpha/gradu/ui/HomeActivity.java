@@ -28,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
                     .beginTransaction()
                     .replace(HOME_CONTAINER_ID, currentFragment)
                     .commit();
+            binding.llBottomNavigation.ivHome.setImageResource(R.drawable.img_home_clicked);
         }
 
         binding.setLifecycleOwner(this);
