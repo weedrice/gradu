@@ -1,4 +1,4 @@
-package a3pmplusalpha.gradu.ui;
+package a3pmplusalpha.gradu.ui.Login;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
