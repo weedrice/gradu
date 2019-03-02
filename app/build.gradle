@@ -37,4 +37,9 @@ dependencies {
 
     //circular seekbar
     implementation 'me.tankery.lib:circularSeekBar:1.1.7'
+
+
+    //rxjava
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
 }
