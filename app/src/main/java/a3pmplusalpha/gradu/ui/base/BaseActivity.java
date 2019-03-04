@@ -35,6 +35,10 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         }
     }
 
+    public T getDataBinding() {
+        return binding;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
