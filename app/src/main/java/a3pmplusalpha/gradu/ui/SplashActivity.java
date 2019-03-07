@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SplashActivity extends AppCompatActivity {
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d("SPLASH", "START");
+        super.onCreate(savedInstanceState);
+
         Log.d("SPLASH", "START");
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
