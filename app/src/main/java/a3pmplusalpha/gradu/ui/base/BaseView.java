@@ -1,4 +1,6 @@
 package a3pmplusalpha.gradu.ui.base;
 
-public class BaseView {
+public interface BaseView<T> {
+
+    void setPresenter(T presenter);
 }
