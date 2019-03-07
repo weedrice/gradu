@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <data>
-        <variable
-            name="loginViewModel"
-            type="a3pmplusalpha.gradu.ui.login.LoginViewModel"/>
-    </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_login_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.25" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_login_bg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,12 +28,14 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_login_logo"/>
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_login_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/id_hint"
             android:layout_marginStart="@dimen/space_median"
+            android:background="@null"
+            android:singleLine="true"
             app:layout_constraintLeft_toLeftOf="@id/iv_login_bg"
             app:layout_constraintTop_toTopOf="@id/iv_login_bg"
             app:layout_constraintBottom_toBottomOf="@id/iv_login_bg"/>
@@ -61,6 +58,8 @@
             android:hint="@string/pw_hint"
             android:layout_marginStart="@dimen/space_median"
             android:inputType="textPassword"
+            android:background="@null"
+            android:singleLine="true"
             app:layout_constraintLeft_toLeftOf="@id/iv_pw_bg"
             app:layout_constraintTop_toTopOf="@id/iv_pw_bg"
             app:layout_constraintBottom_toBottomOf="@id/iv_pw_bg"/>
@@ -70,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/btn_save_id"
-            android:layout_marginLeft="@dimen/space_large"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintBottom_toTopOf="@id/iv_login"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/iv_always_login"
@@ -82,7 +81,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/btn_always_login"
-            android:layout_marginRight="@dimen/space_large"
+            android:layout_marginStart="@dimen/space_median"
             app:layout_constraintTop_toBottomOf="@id/iv_pw_bg"
             app:layout_constraintLeft_toRightOf="@id/iv_save_id"
             app:layout_constraintRight_toRightOf="parent"
@@ -94,7 +93,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_median"
-            android:onClick="@{()->loginViewModel.onLoginClicked()}"
             app:layout_constraintTop_toBottomOf="@id/iv_save_id"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
