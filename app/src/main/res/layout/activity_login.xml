@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="presenter"
+            type="a3pmplusalpha.gradu.ui.login.LoginPresenter"/>
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -28,7 +34,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_login_logo"/>
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/et_login_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/btn_save_id"
+            android:padding="@dimen/space_xx_small"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintBottom_toTopOf="@id/iv_login"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -81,6 +88,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/btn_always_login"
+            android:padding="@dimen/space_xx_small"
             android:layout_marginStart="@dimen/space_median"
             app:layout_constraintTop_toBottomOf="@id/iv_pw_bg"
             app:layout_constraintLeft_toRightOf="@id/iv_save_id"
@@ -88,7 +96,7 @@
             app:layout_constraintBottom_toTopOf="@id/iv_login"/>
 
 
-        <ImageView
+        <ImageButton
             android:id="@+id/iv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +104,18 @@
             app:layout_constraintTop_toBottomOf="@id/iv_save_id"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/btn_login"/>
+            android:background="@drawable/btn_login"/>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/clp_loading_login"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{presenter.isLoading? View.VISIBLE : View.GONE}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

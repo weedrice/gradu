@@ -1,4 +1,20 @@
 package a3pmplusalpha.gradu.ui.login;
 
-public class LoginContract {
+import a3pmplusalpha.gradu.ui.base.BasePresenter;
+import a3pmplusalpha.gradu.ui.base.BaseView;
+
+public interface LoginContract {
+    interface View extends BaseView {
+        void startLogin();
+        void saveId();
+        void alwaysLogin();
+        void changeIdDrawable(boolean state);
+        void changeLoginDrawable(boolean state);
+    }
+
+    interface Presenter extends BasePresenter {
+        void setSaveId();
+        void setAlwaysLogin();
+        void logIn(String id, String pw);
+    }
 }
