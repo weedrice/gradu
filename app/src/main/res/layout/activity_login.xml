@@ -1,71 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:gravity="center"
-    android:orientation="vertical">
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="presenter"
+            type="a3pmplusalpha.gradu.ui.login.LoginPresenter"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/iv_login_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_logo_big"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_logo_big"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25" />
 
-    <EditText
-        android:id="@+id/et_login_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_round_square"
-        android:hint="@string/id_hint"
-        app:layout_constraintBottom_toTopOf="@id/et_login_pw"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_login_logo" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_login_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_login_et_bg"
+            android:layout_marginTop="@dimen/space_large"
+            app:layout_constraintBottom_toTopOf="@id/iv_pw_bg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_login_logo"/>
 
-    <EditText
-        android:id="@+id/et_login_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_round_square"
-        android:hint="@string/pw_hint"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_login_id" />
+        <EditText
+            android:id="@+id/et_login_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/id_hint"
+            android:layout_marginStart="@dimen/space_median"
+            android:background="@null"
+            android:singleLine="true"
+            app:layout_constraintLeft_toLeftOf="@id/iv_login_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_login_bg"
+            app:layout_constraintBottom_toBottomOf="@id/iv_login_bg"/>
 
-    <ImageView
-        android:id="@+id/iv_save_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/btn_save_id"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/iv_always_login"
-        app:layout_constraintTop_toBottomOf="@id/et_login_pw"/>
+        <ImageView
+            android:id="@+id/iv_pw_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_login_et_bg"
+            android:layout_margin="@dimen/space_median"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_login_bg"
+            app:layout_constraintBottom_toTopOf="@id/iv_save_id"/>
 
-    <ImageView
-        android:id="@+id/iv_always_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/btn_always_login"
-        app:layout_constraintTop_toBottomOf="@id/et_login_pw"
-        app:layout_constraintLeft_toRightOf="@id/iv_save_id"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <EditText
+            android:id="@+id/et_login_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/pw_hint"
+            android:layout_marginStart="@dimen/space_median"
+            android:inputType="textPassword"
+            android:background="@null"
+            android:singleLine="true"
+            app:layout_constraintLeft_toLeftOf="@id/iv_pw_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_pw_bg"
+            app:layout_constraintBottom_toBottomOf="@id/iv_pw_bg"/>
+
+        <ImageView
+            android:id="@+id/iv_save_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_save_id"
+            android:padding="@dimen/space_xx_small"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/iv_login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/iv_always_login"
+            app:layout_constraintTop_toBottomOf="@id/iv_pw_bg" />
+
+        <ImageView
+            android:id="@+id/iv_always_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/btn_always_login"
+            android:padding="@dimen/space_xx_small"
+            android:layout_marginStart="@dimen/space_median"
+            app:layout_constraintTop_toBottomOf="@id/iv_pw_bg"
+            app:layout_constraintLeft_toRightOf="@id/iv_save_id"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/iv_login"/>
 
 
-    <ImageView
-        android:id="@+id/iv_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/iv_always_login"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:src="@drawable/btn_login"/>
+        <ImageButton
+            android:id="@+id/iv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_median"
+            app:layout_constraintTop_toBottomOf="@id/iv_save_id"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/btn_login"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/clp_loading_login"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{presenter.isLoading? View.VISIBLE : View.GONE}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
