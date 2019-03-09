@@ -1,6 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_major_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="14dp"
+        android:layout_margin="@dimen/space_large"
+        tools:text="1전공"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_major_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:fontFamily="@font/noto_bold"
+        android:layout_marginStart="@dimen/space_small"
+        tools:text="시각디자인"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_subtitle"
+        app:layout_constraintLeft_toRightOf="@id/tv_major_subtitle"/>
+
+    <TextView
+        android:id="@+id/tv_scholarship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="10dp"
+        tools:text="콘텐츠융합디자인학부"
+        android:layout_marginRight="@dimen/space_median"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_subtitle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/cs_major_credit"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_major_subtitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/v_major_partition"/>
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/cs_major_english"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="@id/cs_major_credit"
+        app:layout_constraintRight_toRightOf="@id/cs_major_credit"
+        app:layout_constraintBottom_toBottomOf="@id/cs_major_credit"/>
+
+    <TextView
+        android:id="@+id/tv_major_semester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cs_major_english"
+        app:layout_constraintLeft_toLeftOf="@id/cs_major_english"
+        app:layout_constraintRight_toRightOf="@id/cs_major_english"
+        app:layout_constraintBottom_toBottomOf="@id/cs_major_english"/>
+
+    <ImageView
+        android:id="@+id/v_major_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_major_wrapper"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/tv_scholarship"
+        app:layout_constraintLeft_toRightOf="@id/cs_major_credit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/v_major_english_wrapper"/>
+
+    <ImageView
+        android:id="@+id/iv_major_current_credit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_major1_credit_title"
+        app:layout_constraintTop_toTopOf="@id/v_major_wrapper"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/tv_major_current_credit"/>
+
+    <TextView
+        android:id="@+id/tv_major_current_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="24 of 33"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_current_credit_title"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_wrapper"/>
+
+    <ImageView
+        android:id="@+id/iv_major_current_credit_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_complete"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_current_credit_title"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_wrapper"/>
+
+    <ImageView
+        android:id="@+id/v_major_english_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/v_major_wrapper"
+        app:layout_constraintLeft_toRightOf="@id/cs_major_credit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/v_major_partition"/>
+
+    <ImageView
+        android:id="@+id/iv_major_english_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_major_english_title"
+        app:layout_constraintTop_toTopOf="@id/v_major_english_wrapper"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/pb_major_english_status"/>
+
+    <ProgressBar
+        android:id="@+id/pb_major_english_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_english_title"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_english_wrapper"/>
+
+    <ImageView
+        android:id="@+id/major_english_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_complete"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_english_title"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_english_wrapper" />
+
+    <View
+        android:id="@+id/v_major_partition"
+        style="@style/Horizontal_line"
+        app:layout_constraintTop_toBottomOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_major_map_title"/>
+
+    <TextView
+        android:id="@+id/tv_major_map_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:fontFamily="@font/noto_light"
+        android:textColor="@color/black"
+        tools:text="한 눈에 보는 전공"
+        android:layout_marginStart="@dimen/space_large"
+        app:layout_constraintTop_toBottomOf="@id/v_major_partition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_major_map"/>
+
+    <TextView
+        android:id="@+id/tv_major_map_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_small"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="14dp"
+        tools:text="전공흐름도 보기"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_map_title"
+        app:layout_constraintLeft_toRightOf="@id/tv_major_map_title"/>
+
+    <ImageView
+        android:id="@+id/iv_major_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_major_map_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
