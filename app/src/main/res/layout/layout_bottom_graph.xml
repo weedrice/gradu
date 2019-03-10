@@ -41,6 +41,7 @@
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/circle_width_small"
+        app:cs_circle_color="@color/very_light_grey"
         app:cs_pointer_angle="0"
         app:cs_start_angle="180"
         app:cs_end_angle="0"

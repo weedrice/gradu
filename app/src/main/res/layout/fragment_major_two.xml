@@ -1,6 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <!--TODO: Text Size Setting-->
+    <TextView
+        android:id="@+id/tv_major_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="14dp"
+        android:layout_margin="@dimen/space_large"
+        tools:text="2전공"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <!--TODO: Text Size Setting-->
+    <TextView
+        android:id="@+id/tv_major_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:fontFamily="@font/noto_bold"
+        android:layout_marginStart="@dimen/space_small"
+        tools:text="제품디자인"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_subtitle"
+        app:layout_constraintLeft_toRightOf="@id/tv_major_subtitle"/>
+
+    <!--TODO: Text Size Setting-->
+    <TextView
+        android:id="@+id/tv_scholarship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="12dp"
+        tools:text="콘텐츠융합디자인학부"
+        android:layout_marginRight="@dimen/space_median"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_subtitle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/v_major_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_major_wrapper"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/tv_scholarship"
+        app:layout_constraintRight_toLeftOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/v_major_english_wrapper"/>
+
+    <ImageView
+        android:id="@+id/iv_major_current_credit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_major1_credit_title"
+        app:layout_constraintTop_toTopOf="@id/v_major_wrapper"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/tv_major_current_credit"/>
+
+    <!-- TODO: 나눔바른고딕으로 변경해야함
+         TODO: 숫자와 of 33 다르게 설정해야함-->
+    <TextView
+        android:id="@+id/tv_major_current_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="28dp"
+        tools:text="24 of 33"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_current_credit_title"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_wrapper"/>
+
+    <ImageView
+        android:id="@+id/iv_major_current_credit_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_complete"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_current_credit_title"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_wrapper"/>
+
+    <ImageView
+        android:id="@+id/v_major_english_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_major_wrapper"
+        app:layout_constraintTop_toBottomOf="@id/v_major_wrapper"
+        app:layout_constraintRight_toLeftOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/v_major_partition"/>
+
+    <ImageView
+        android:id="@+id/iv_major_english_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_major_english_title"
+        app:layout_constraintTop_toTopOf="@id/v_major_english_wrapper"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/pb_major_english_status"/>
+
+    <!--TODO: Horizon Line으로 변경해야함-->
+    <ProgressBar
+        android:id="@+id/pb_major_english_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_english_title"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_english_wrapper"/>
+
+    <ImageView
+        android:id="@+id/major_english_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_complete"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/iv_major_english_title"
+        app:layout_constraintLeft_toLeftOf="@id/v_major_english_wrapper"
+        app:layout_constraintRight_toRightOf="@id/v_major_english_wrapper"
+        app:layout_constraintBottom_toBottomOf="@id/v_major_english_wrapper" />
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/cs_major_credit"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        app:cs_circle_stroke_width="10dp"
+        app:cs_circle_progress_color="@color/colorAccent"
+        app:cs_circle_color="@color/very_light_grey"
+        app:cs_lock_enabled="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_major_subtitle"
+        app:layout_constraintLeft_toRightOf="@id/v_major_wrapper"
+        app:layout_constraintBottom_toTopOf="@id/v_major_partition"/>
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/cs_major_english"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        app:cs_circle_stroke_width="8dp"
+        app:cs_circle_progress_color="@color/colorAccent"
+        app:cs_circle_color="@color/very_light_grey"
+        app:cs_lock_enabled="true"
+        app:layout_constraintTop_toTopOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="@id/cs_major_credit"
+        app:layout_constraintRight_toRightOf="@id/cs_major_credit"
+        app:layout_constraintBottom_toBottomOf="@id/cs_major_credit"/>
+
+    <TextView
+        android:id="@+id/tv_major_semester"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_bold"
+        android:textColor="@color/black"
+        tools:text="6학기 째"
+        app:layout_constraintVertical_bias=".4"
+        app:layout_constraintTop_toTopOf="@id/cs_major_english"
+        app:layout_constraintLeft_toLeftOf="@id/cs_major_english"
+        app:layout_constraintRight_toRightOf="@id/cs_major_english"
+        app:layout_constraintBottom_toBottomOf="@id/cs_major_english"/>
+
+    <TextView
+        android:id="@+id/tv_majoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:text="@string/majoring"
+        app:layout_constraintTop_toBottomOf="@id/tv_major_semester"
+        app:layout_constraintLeft_toLeftOf="@id/cs_major_credit"
+        app:layout_constraintRight_toRightOf="@id/cs_major_credit"/>
+
+    <View
+        android:id="@+id/v_major_partition"
+        style="@style/Horizontal_line"
+        app:layout_constraintTop_toBottomOf="@id/cs_major_credit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_major_map_title"/>
+
+    <TextView
+        android:id="@+id/tv_major_map_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:fontFamily="@font/noto_medium"
+        android:textColor="@color/black"
+        android:text="@string/major_map_title"
+        android:layout_marginStart="@dimen/space_large"
+        app:layout_constraintTop_toBottomOf="@id/v_major_partition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_major_map"/>
+
+    <TextView
+        android:id="@+id/tv_major_map_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_small"
+        android:textColor="@color/black_opacity_60"
+        android:textSize="14dp"
+        android:text="@string/major_map_subtitle"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_major_map_title"
+        app:layout_constraintLeft_toRightOf="@id/tv_major_map_title"/>
+
+    <!--TODO: 지도 이미지 추가해야함-->
+    <ImageView
+        android:id="@+id/iv_major_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_major_map_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
