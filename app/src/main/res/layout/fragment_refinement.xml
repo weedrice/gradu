@@ -1,6 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_refinement_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:fontFamily="@font/noto_bold"
+            android:layout_margin="@dimen/space_large"
+            tools:text="교양"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_refinement_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_opacity_60"
+            android:textSize="14dp"
+            android:fontFamily="@font/noto_bold"
+            android:layout_marginStart="@dimen/space_small"
+            tools:text="교양있는 대학생, 나야 나"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_refinement_title"
+            app:layout_constraintLeft_toRightOf="@id/tv_refinement_title"/>
+
+        <me.tankery.lib.circularseekbar.CircularSeekBar
+            android:id="@+id/cs_refinement_normal"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/ll_wrappers"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_refinement_title"/>
+
+        <TextView
+            android:id="@+id/tv_cs_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="교양학점"
+            app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
+            app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
+            app:layout_constraintBottom_toTopOf="@id/tv_refinement_credit"/>
+
+        <TextView
+            android:id="@+id/tv_refinement_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="66"
+            app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
+            app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
+            app:layout_constraintTop_toTopOf="@id/cs_refinement_normal"
+            app:layout_constraintBottom_toBottomOf="@id/cs_refinement_normal"/>
+
+        <TextView
+            android:id="@+id/tv_refinement_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="of 74"
+            app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
+            app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
+            app:layout_constraintTop_toBottomOf="@id/tv_refinement_credit"/>
+
+        <LinearLayout
+            android:id="@+id/ll_wrappers"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginStart="@dimen/space_median"
+            android:layout_marginEnd="@dimen/space_median"
+            android:layout_marginBottom="@dimen/space_x_small"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ll_free_wrapper">
+
+            <LinearLayout
+                android:id="@+id/ll_normal_wrapper"
+                android:background="@drawable/shape_round_square"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/space_x_small"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/space_small">
+
+                <ImageView
+                    android:id="@+id/iv_refinement_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_normal_refinement"/>
+
+                <me.tankery.lib.circularseekbar.CircularSeekBar
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_global_wrapper"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_round_square"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/space_small"
+                app:layout_constraintTop_toBottomOf="@id/cs_refinement_normal"
+                app:layout_constraintLeft_toRightOf="@id/ll_normal_wrapper"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ll_free_wrapper">
+
+                <ImageView
+                    android:id="@+id/iv_global_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_global_refinement"/>
+
+                <me.tankery.lib.circularseekbar.CircularSeekBar
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_free_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_square"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/space_median"
+            android:layout_marginEnd="@dimen/space_median"
+            android:padding="@dimen/space_small"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_x_small"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_wrappers"
+            app:layout_constraintBottom_toTopOf="@id/ll_english_wrapper">
+
+            <TextView
+                android:id="@+id/tv_free_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="자유 이수"/>
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_complete"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_english_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_square"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/space_median"
+            android:layout_marginEnd="@dimen/space_median"
+            android:padding="@dimen/space_small"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/space_x_small"
+            app:layout_constraintTop_toBottomOf="@id/ll_free_wrapper"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tv_english_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="영어 이수학점"/>
+
+            <SeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_complete"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
