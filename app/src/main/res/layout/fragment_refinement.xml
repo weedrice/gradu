@@ -6,18 +6,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
+        <!--TODO: Text Size Setting-->
         <TextView
             android:id="@+id/tv_refinement_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="18dp"
             android:fontFamily="@font/noto_bold"
             android:layout_margin="@dimen/space_large"
-            tools:text="교양"
+            tools:text="@string/refinement"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
+        <!--TODO: Text Size Setting-->
         <TextView
             android:id="@+id/tv_refinement_subtitle"
             android:layout_width="wrap_content"
@@ -26,32 +28,47 @@
             android:textSize="14dp"
             android:fontFamily="@font/noto_bold"
             android:layout_marginStart="@dimen/space_small"
-            tools:text="교양있는 대학생, 나야 나"
+            android:text="@string/refinement_subtitle"
             app:layout_constraintBaseline_toBaselineOf="@id/tv_refinement_title"
             app:layout_constraintLeft_toRightOf="@id/tv_refinement_title"/>
 
+        <!--TODO: 그림자 추가해야함-->
         <me.tankery.lib.circularseekbar.CircularSeekBar
             android:id="@+id/cs_refinement_normal"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
+            app:cs_circle_stroke_width="@dimen/circle_width_large"
+            app:cs_circle_progress_color="@color/colorAccent"
+            app:cs_circle_color="@color/very_light_grey"
+            app:cs_lock_enabled="true"
             app:layout_constraintBottom_toTopOf="@id/ll_wrappers"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_refinement_title"/>
 
+        <!--TODO: Text Size Setting-->
         <TextView
             android:id="@+id/tv_cs_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="교양학점"
+            android:fontFamily="@font/noto_medium"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:text="@string/refinement_credit_title"
             app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
             app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
             app:layout_constraintBottom_toTopOf="@id/tv_refinement_credit"/>
 
+        <!--TODO: Text Size Setting
+            TODO: Font Family Change-->
         <TextView
             android:id="@+id/tv_refinement_credit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_medium"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:includeFontPadding="false"
             tools:text="66"
             app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
             app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
@@ -62,6 +79,9 @@
             android:id="@+id/tv_refinement_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_light"
+            android:textSize="20dp"
+            android:includeFontPadding="false"
             tools:text="of 74"
             app:layout_constraintLeft_toLeftOf="@id/cs_refinement_normal"
             app:layout_constraintRight_toRightOf="@id/cs_refinement_normal"
@@ -98,11 +118,20 @@
                     android:id="@+id/iv_refinement_normal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_small"
                     android:src="@drawable/img_normal_refinement"/>
 
                 <me.tankery.lib.circularseekbar.CircularSeekBar
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    app:cs_circle_color="@color/very_light_grey"
+                    app:cs_pointer_angle="0"
+                    app:cs_start_angle="180"
+                    app:cs_end_angle="0"
+                    app:cs_lock_enabled="true"
+                    app:cs_disable_pointer="true"
+                    app:cs_disable_progress_glow="true"
+                    app:cs_circle_stroke_width="@dimen/circle_width_small" />
 
             </LinearLayout>
 
@@ -124,11 +153,21 @@
                     android:id="@+id/iv_global_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_small"
                     android:src="@drawable/img_global_refinement"/>
 
+                <!--TODO: 새로운 반원형 Graph 찾기-->
                 <me.tankery.lib.circularseekbar.CircularSeekBar
                     android:layout_width="80dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    app:cs_circle_color="@color/very_light_grey"
+                    app:cs_pointer_angle="0"
+                    app:cs_start_angle="180"
+                    app:cs_end_angle="0"
+                    app:cs_lock_enabled="true"
+                    app:cs_disable_pointer="true"
+                    app:cs_disable_progress_glow="true"
+                    app:cs_circle_stroke_width="@dimen/circle_width_small"/>
 
             </LinearLayout>
 
@@ -154,12 +193,17 @@
                 android:id="@+id/tv_free_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="자유 이수"/>
+                android:text="@string/free_refinement"
+                android:textColor="@color/black"
+                android:fontFamily="@font/noto_bold"
+                android:textSize="15dp"/>
 
+            <!--TODO: Horizontal ProgressBar로 변경-->
             <SeekBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <!--TODO: TextView 추가-->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -187,12 +231,17 @@
                 android:id="@+id/tv_english_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="영어 이수학점"/>
+                android:text="@string/english_refinement"
+                android:textColor="@color/black"
+                android:fontFamily="@font/noto_bold"
+                android:textSize="15dp"/>
 
+            <!--TODO: Horizontal ProgressBar로 변경-->
             <SeekBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <!--TODO: TextView 추가-->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -12,6 +12,16 @@
     <string name="my_page_title">마이페이지</string>
     <string name="my_page_version">ver 1.0</string>
     <string name="invalid_id_pw">학번과 비밀번호를 확인해주세요.</string>
+    <string name="major_1">1전공</string>
+    <string name="major_2">2전공</string>
+    <string name="refinement">교양</string>
+    <string name="majoring">전공중입니다</string>
+    <string name="major_map_title">한 눈에 보는 전공</string>
+    <string name="major_map_subtitle">전공흐름도 보기</string>
+    <string name="refinement_subtitle">교양있는 대학생, 나야 나</string>
+    <string name="refinement_credit_title">교양학점</string>
+    <string name="free_refinement">자유 이수</string>
+    <string name="english_refinement">영어 이수학점</string>
     <string-array name="planets_array">
         <item>2017-2</item>
         <item>2018-1</item>
