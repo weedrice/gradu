@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import a3pmplusalpha.gradu.R;
 import a3pmplusalpha.gradu.databinding.ActivityLoginBinding;
+import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import a3pmplusalpha.gradu.ui.base.BaseActivity;
 import androidx.annotation.Nullable;
 
@@ -52,6 +53,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
     }
 
     @Override
+    public void loginFailure() {
+        showToast(getString(R.string.login_failure));
+    }
+
+    @Override
     public void startLogin() {
         String id = binding.etLoginId.getText().toString();
         String pw = binding.etLoginPw.getText().toString();
@@ -63,12 +69,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
         }
     }
 
-    @Override
     public void saveId() {
         presenter.setSaveId();
     }
 
-    @Override
     public void alwaysLogin() {
         presenter.setAlwaysLogin();
     }
@@ -89,6 +93,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
         } else {
             binding.ivAlwaysLogin.setImageResource(R.drawable.btn_always_login);
         }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        GraduPreference.getSharedPreferences(this).clearCookies(GraduPreference.PREF_NAME_COOKIE);
     }
 }

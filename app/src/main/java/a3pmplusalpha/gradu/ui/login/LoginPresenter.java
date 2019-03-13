@@ -1,11 +1,20 @@
 package a3pmplusalpha.gradu.ui.login;
 
-import android.app.Activity;
+import android.util.Log;
 
+import java.util.HashSet;
+
+import a3pmplusalpha.gradu.model.AddCookieIntercepter;
 import a3pmplusalpha.gradu.model.HisnetApi;
-import a3pmplusalpha.gradu.model.repository.Local.preference.SettingsPreference;
+import a3pmplusalpha.gradu.model.ReceivedCookieIntercepter;
+import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import androidx.databinding.ObservableBoolean;
 import io.reactivex.disposables.CompositeDisposable;
+import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
@@ -41,30 +50,55 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     private void saveIdPref(String id) {
-        SettingsPreference.saveId((Activity)view, id);
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .putPrefString(GraduPreference.PREF_NAME_ID, id);
     }
 
     private void savePwPref(String pw) {
-        SettingsPreference.savePw((Activity)view, pw);
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .putPrefString(GraduPreference.PREF_NAME_PASSWORD, pw);
     }
 
     @Override
     public void logIn(String id, String pw) {
         // TODO: Login Process 처리하기
-        /*setIsLoading(true);
-        compositeDisposable.add(
-                HisnetApi.getInstance().api.login(id, pw)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {
-                    setIsLoading(false);
-                    String result = response.body();
-                    Log.d("Presenter", result);
-                }, throwable -> {
-                    setIsLoading(false);
-                    throwable.getStackTrace();
-                })
-        );*/
+        setIsLoading(true);
+        client.api.login(id, pw).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    if(!response.body().string().contains("alert")) {
+                        Log.d("Response: ", response.body().string());
+                        //TODO: Login 성공 시 Data 받아오는 과정 추가
+                        setCookies();
+                        setIsLoading(false);
+                    } else {
+                        client.clearClient();
+                        view.loginFailure();
+                    }
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void setCookies() {
+        ReceivedCookieIntercepter receivedCookieIntercepter
+                = new ReceivedCookieIntercepter((LoginActivity)view);
+        AddCookieIntercepter addCookieIntercepter
+                = new AddCookieIntercepter((LoginActivity)view);
+        OkHttpClient okClient = new OkHttpClient().newBuilder()
+                .addInterceptor(addCookieIntercepter)
+                .addNetworkInterceptor(receivedCookieIntercepter)
+                .build();
+        client.setClient(okClient);
+        Log.d("LP", "Set new Client");
     }
 
     @Override
