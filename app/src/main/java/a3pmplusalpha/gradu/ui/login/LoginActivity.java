@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+
 import a3pmplusalpha.gradu.R;
 import a3pmplusalpha.gradu.databinding.ActivityLoginBinding;
 import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import a3pmplusalpha.gradu.ui.base.BaseActivity;
+import a3pmplusalpha.gradu.ui.main.MainActivity;
 import androidx.annotation.Nullable;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContract.Presenter> implements LoginContract.View {
@@ -38,11 +41,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
     }
 
     private void initView(Bundle bundle) {
-        if(bundle != null) {
-            binding.etLoginId.setText(bundle.getString("ID"));
+        String id = getIntent().getExtras().getString("ID");
+        if(id.length() > 0) {
+            binding.etLoginId.setText(id);
             binding.ivSaveId.setImageResource(R.drawable.btn_save_id_clicked);
-            if(bundle.getString("PW") != null) {
-                binding.etLoginPw.setText(bundle.getString("PW"));
+            String password = getIntent().getExtras().getString("PW");
+            if(password.length() > 0) {
+                binding.etLoginPw.setText(password);
                 binding.ivAlwaysLogin.setImageResource(R.drawable.btn_always_login_clicked);
             }
         }
@@ -67,6 +72,14 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
         } else {
             showToast(getString(R.string.invalid_id_pw));
         }
+    }
+
+    @Override
+    public void loginSuccess(String html) {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("html", html);
+        startActivity(intent);
+        finish();
     }
 
     public void saveId() {
@@ -98,6 +111,5 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
     @Override
     protected void onPause() {
         super.onPause();
-        GraduPreference.getSharedPreferences(this).clearCookies(GraduPreference.PREF_NAME_COOKIE);
     }
 }

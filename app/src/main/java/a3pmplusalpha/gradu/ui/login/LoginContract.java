@@ -7,6 +7,7 @@ public interface LoginContract {
     interface View extends BaseView {
         void startLogin();
         void loginFailure();
+        void loginSuccess(String html);
         void changeIdDrawable(boolean state);
         void changeLoginDrawable(boolean state);
     }

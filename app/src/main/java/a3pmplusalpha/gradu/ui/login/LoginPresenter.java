@@ -1,16 +1,8 @@
 package a3pmplusalpha.gradu.ui.login;
 
-import android.util.Log;
-
-import java.util.HashSet;
-
-import a3pmplusalpha.gradu.model.AddCookieIntercepter;
 import a3pmplusalpha.gradu.model.HisnetApi;
-import a3pmplusalpha.gradu.model.ReceivedCookieIntercepter;
 import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import androidx.databinding.ObservableBoolean;
-import io.reactivex.disposables.CompositeDisposable;
-import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,11 +14,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     private boolean isSaveId;
     private boolean isAlwaysLogin;
     private HisnetApi client;
-    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
-        client = HisnetApi.getInstance();
+        client = HisnetApi.getInstance((LoginActivity)view);
     }
 
     public ObservableBoolean getIsLoading() {
@@ -39,6 +30,9 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void setSaveId() {
+        if(isSaveId && isAlwaysLogin) {
+            setAlwaysLogin();
+        }
         isSaveId = !isSaveId;
         view.changeIdDrawable(isSaveId);
     }
@@ -54,51 +48,79 @@ public class LoginPresenter implements LoginContract.Presenter {
                 .putPrefString(GraduPreference.PREF_NAME_ID, id);
     }
 
+    private void clearIdPref() {
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .clearPrefString(GraduPreference.PREF_NAME_ID);
+    }
+
     private void savePwPref(String pw) {
         GraduPreference.getSharedPreferences((LoginActivity)view)
                 .putPrefString(GraduPreference.PREF_NAME_PASSWORD, pw);
     }
 
+    private void clearPwPref() {
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .clearPrefString(GraduPreference.PREF_NAME_PASSWORD);
+    }
+
+    private void controlPrefs(String id, String pw) {
+        if(isAlwaysLogin)
+            savePwPref(pw);
+        if(isSaveId) {
+            saveIdPref(id);
+            clearPwPref();
+        } else {
+            clearIdPref();
+            clearPwPref();
+        }
+    }
+
     @Override
     public void logIn(String id, String pw) {
-        // TODO: Login Process 처리하기
         setIsLoading(true);
-        client.api.login(id, pw).enqueue(new Callback<ResponseBody>() {
+        client.api.login(id, pw, "Korean").enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
                     if(!response.body().string().contains("alert")) {
-                        Log.d("Response: ", response.body().string());
-                        //TODO: Login 성공 시 Data 받아오는 과정 추가
-                        setCookies();
-                        setIsLoading(false);
+                        controlPrefs(id, pw);
+                        getHtml();
                     } else {
-                        client.clearClient();
                         view.loginFailure();
                     }
                 } catch(Exception e) {
                     e.printStackTrace();
+                    setIsLoading(false);
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
+                setIsLoading(false);
             }
         });
     }
 
-    private void setCookies() {
-        ReceivedCookieIntercepter receivedCookieIntercepter
-                = new ReceivedCookieIntercepter((LoginActivity)view);
-        AddCookieIntercepter addCookieIntercepter
-                = new AddCookieIntercepter((LoginActivity)view);
-        OkHttpClient okClient = new OkHttpClient().newBuilder()
-                .addInterceptor(addCookieIntercepter)
-                .addNetworkInterceptor(receivedCookieIntercepter)
-                .build();
-        client.setClient(okClient);
-        Log.d("LP", "Set new Client");
+    private void getHtml() {
+        client.api.getInfo().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    view.loginSuccess(response.body().string());
+                    setIsLoading(false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    setIsLoading(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                setIsLoading(false);
+            }
+        });
     }
 
     @Override
