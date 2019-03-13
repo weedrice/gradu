@@ -6,8 +6,8 @@ import a3pmplusalpha.gradu.ui.base.BaseView;
 public interface LoginContract {
     interface View extends BaseView {
         void startLogin();
-        void saveId();
-        void alwaysLogin();
+        void loginFailure();
+        void loginSuccess(String html);
         void changeIdDrawable(boolean state);
         void changeLoginDrawable(boolean state);
     }

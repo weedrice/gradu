@@ -58,4 +58,10 @@ dependencies {
     //room
     implementation "android.arch.persistence.room:runtime:$room_version"
     implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    //jsoup
+    implementation "org.jsoup:jsoup:1.11.3"
+
+    //JavaNetCookieJar
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 }

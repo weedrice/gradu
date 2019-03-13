@@ -3,7 +3,10 @@ package a3pmplusalpha.gradu.ui.splash;
 import android.content.Intent;
 import android.os.Bundle;
 
-import a3pmplusalpha.gradu.model.repository.Local.preference.SettingsPreference;
+import java.util.HashSet;
+import java.util.Set;
+
+import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import a3pmplusalpha.gradu.ui.login.LoginActivity;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +18,17 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent;
 
         //When SharedPreference Exists.
-        if(SettingsPreference.getId(SplashActivity.this).length() == 0) {
+        String id = GraduPreference.getSharedPreferences(this)
+                .getPrefString(GraduPreference.PREF_NAME_ID, "");
+
+        String password = GraduPreference.getSharedPreferences(this)
+                .getPrefString(GraduPreference.PREF_NAME_PASSWORD, "");
+
+        if(id != null) {
             intent = new Intent(SplashActivity.this, LoginActivity.class);
-            intent.putExtra("ID",
-                    SettingsPreference.getId(SplashActivity.this).toString());
-            if(SettingsPreference.getPw(SplashActivity.this).length() == 0) {
-                intent.putExtra("PW",
-                        SettingsPreference.getPw(SplashActivity.this).toString());
+            intent.putExtra("ID", id);
+            if(password != null) {
+                intent.putExtra("PW", password);
             }
             startActivity(intent);
             this.finish();

@@ -1,11 +1,12 @@
 package a3pmplusalpha.gradu.ui.login;
 
-import android.app.Activity;
-
 import a3pmplusalpha.gradu.model.HisnetApi;
-import a3pmplusalpha.gradu.model.repository.Local.preference.SettingsPreference;
+import a3pmplusalpha.gradu.model.repository.Local.preference.GraduPreference;
 import androidx.databinding.ObservableBoolean;
-import io.reactivex.disposables.CompositeDisposable;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
@@ -13,11 +14,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     private boolean isSaveId;
     private boolean isAlwaysLogin;
     private HisnetApi client;
-    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
-        client = HisnetApi.getInstance();
+        client = HisnetApi.getInstance((LoginActivity)view);
     }
 
     public ObservableBoolean getIsLoading() {
@@ -30,6 +30,9 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void setSaveId() {
+        if(isSaveId && isAlwaysLogin) {
+            setAlwaysLogin();
+        }
         isSaveId = !isSaveId;
         view.changeIdDrawable(isSaveId);
     }
@@ -41,30 +44,83 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     private void saveIdPref(String id) {
-        SettingsPreference.saveId((Activity)view, id);
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .putPrefString(GraduPreference.PREF_NAME_ID, id);
+    }
+
+    private void clearIdPref() {
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .clearPrefString(GraduPreference.PREF_NAME_ID);
     }
 
     private void savePwPref(String pw) {
-        SettingsPreference.savePw((Activity)view, pw);
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .putPrefString(GraduPreference.PREF_NAME_PASSWORD, pw);
+    }
+
+    private void clearPwPref() {
+        GraduPreference.getSharedPreferences((LoginActivity)view)
+                .clearPrefString(GraduPreference.PREF_NAME_PASSWORD);
+    }
+
+    private void controlPrefs(String id, String pw) {
+        if(isAlwaysLogin)
+            savePwPref(pw);
+        if(isSaveId) {
+            saveIdPref(id);
+            clearPwPref();
+        } else {
+            clearIdPref();
+            clearPwPref();
+        }
     }
 
     @Override
     public void logIn(String id, String pw) {
-        // TODO: Login Process 처리하기
-        /*setIsLoading(true);
-        compositeDisposable.add(
-                HisnetApi.getInstance().api.login(id, pw)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {
+        setIsLoading(true);
+        client.api.login(id, pw, "Korean").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    if(!response.body().string().contains("alert")) {
+                        controlPrefs(id, pw);
+                        getHtml();
+                    } else {
+                        view.loginFailure();
+                    }
+                } catch(Exception e) {
+                    e.printStackTrace();
                     setIsLoading(false);
-                    String result = response.body();
-                    Log.d("Presenter", result);
-                }, throwable -> {
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                setIsLoading(false);
+            }
+        });
+    }
+
+    private void getHtml() {
+        client.api.getInfo().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    view.loginSuccess(response.body().string());
                     setIsLoading(false);
-                    throwable.getStackTrace();
-                })
-        );*/
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    setIsLoading(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                setIsLoading(false);
+            }
+        });
     }
 
     @Override
