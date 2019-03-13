@@ -1,12 +1,17 @@
 package a3pmplusalpha.gradu.model;
 
+import android.content.Context;
+
+import com.franmontiel.persistentcookiejar.PersistentCookieJar;
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public class HisnetApi {
@@ -15,39 +20,31 @@ public class HisnetApi {
     private String baseUrl = "https://hisnet.handong.edu/";
     public API api;
 
-    private HisnetApi() {
+    private HisnetApi(Context context) {
+        PersistentCookieJar cookieJar =
+                new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context));
+        OkHttpClient okClient = new OkHttpClient().newBuilder()
+                .cookieJar(cookieJar)
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
+                .client(okClient)
                 .build();
+
         api = retrofit.create(API.class);
     }
 
-    public static HisnetApi getInstance() {
+    public static HisnetApi getInstance(Context context) {
         if(INSTANCE == null) {
-            INSTANCE = new HisnetApi();
+            INSTANCE = new HisnetApi(context);
         }
 
         return INSTANCE;
     }
 
-    public void clearClient() {
-        api = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .build()
-                .create(API.class);
-    }
-
-    public void setClient(OkHttpClient newClient) {
-        api = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(newClient)
-                .build()
-                .create(API.class);
-    }
-
     public interface API {
-
-        @GET("haksa/record/HREC110M.php")
+        @POST("haksa/record/HREC110M.php")
         Call<ResponseBody> getInfo();
 
         @FormUrlEncoded
@@ -56,7 +53,10 @@ public class HisnetApi {
                 @Field("id")
                 String id,
                 @Field("password")
-                String password
+                String password,
+                @Field("Language")
+                String language
         );
     }
+
 }
