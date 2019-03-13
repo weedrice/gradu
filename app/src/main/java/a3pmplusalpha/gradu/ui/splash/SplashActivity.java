@@ -26,11 +26,9 @@ public class SplashActivity extends AppCompatActivity {
 
         if(id != null) {
             intent = new Intent(SplashActivity.this, LoginActivity.class);
-            intent.putExtra("ID",
-                    id);
+            intent.putExtra("ID", id);
             if(password != null) {
-                intent.putExtra("PW",
-                        password);
+                intent.putExtra("PW", password);
             }
             startActivity(intent);
             this.finish();
