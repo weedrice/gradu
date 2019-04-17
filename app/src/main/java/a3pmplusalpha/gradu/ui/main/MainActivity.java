@@ -7,6 +7,7 @@ import a3pmplusalpha.gradu.R;
 import a3pmplusalpha.gradu.databinding.ActivityHomeBinding;
 import a3pmplusalpha.gradu.ui.base.BaseActivity;
 import a3pmplusalpha.gradu.ui.main.home.HomeFragment;
+import a3pmplusalpha.gradu.util.HtmlParse;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -28,7 +29,10 @@ public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String html = getIntent().getExtras().getString("html");
+        String userHtml = getIntent().getExtras().getString("userHtml");
+        String classHtml = getIntent().getExtras().getString("classHtml");
+        Log.d("Main create", "Created");
+        HtmlParse.getAccountInformation(userHtml);
 
         currentFragment = new HomeFragment();
         getSupportFragmentManager()
