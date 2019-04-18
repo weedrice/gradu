@@ -84,7 +84,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                 try {
                     if(!response.body().string().contains("alert")) {
                         controlPrefs(id, pw);
-                        getHtml();
+                        getUserHtml();
                     } else {
                         view.loginFailure();
                     }
@@ -102,12 +102,33 @@ public class LoginPresenter implements LoginContract.Presenter {
         });
     }
 
-    private void getHtml() {
+    private void getUserHtml() {
+        client.api.getAccountInfo().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    getClassHtml(response.body().string());
+                    setIsLoading(false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    setIsLoading(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                setIsLoading(false);
+            }
+        });
+    }
+
+    private void getClassHtml(String userHtml) {
         client.api.getInfo().enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 try {
-                    view.loginSuccess(response.body().string());
+                    view.loginSuccess(userHtml, response.body().string());
                     setIsLoading(false);
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -47,6 +47,9 @@ public class HisnetApi {
         @POST("haksa/record/HREC110M.php")
         Call<ResponseBody> getInfo();
 
+        @POST("haksa/hakjuk/HHAK110M.php")
+        Call<ResponseBody> getAccountInfo();
+
         @FormUrlEncoded
         @POST("login/_login.php")
         Call<ResponseBody> login(

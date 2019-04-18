@@ -75,9 +75,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginContr
     }
 
     @Override
-    public void loginSuccess(String html) {
+    public void loginSuccess(String userHtml, String classHtml) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.putExtra("html", html);
+        intent.putExtra("userHtml", userHtml);
+        intent.putExtra("classHtml", classHtml);
         startActivity(intent);
         finish();
     }

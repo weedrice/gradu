@@ -15,7 +15,7 @@
             android:textSize="18dp"
             android:fontFamily="@font/noto_bold"
             android:layout_margin="@dimen/space_large"
-            tools:text="@string/refinement"
+            android:text="@string/refinement"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
