@@ -1,19 +1,30 @@
 package a3pmplusalpha.gradu.ui.main;
 
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import a3pmplusalpha.gradu.R;
 import a3pmplusalpha.gradu.databinding.ActivityHomeBinding;
 import a3pmplusalpha.gradu.ui.base.BaseActivity;
 import a3pmplusalpha.gradu.ui.main.home.HomeFragment;
-import a3pmplusalpha.gradu.util.HtmlParse;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
-public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract.Presenter> {
+public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract.Presenter> implements MainContract.View {
+    static final String welcomeMsg = "Welcome, ";
+
     private static final int HOME_CONTAINER_ID = R.id.fl_home_container;
     private Fragment currentFragment;
+
+    @Override
+    public void setUserName(String name) {
+        binding.includeLayoutHeader.tvWelcome.setText(welcomeMsg + name);
+    }
+
+    @Override
+    public void setPresenter(Object presenter) {
+
+    }
 
     @Override
     public int getLayoutId() {
@@ -22,7 +33,7 @@ public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract
 
     @Override
     public MainContract.Presenter getPresenter() {
-        return null;
+        return new MainPresenter(this);
     }
 
     @Override
@@ -31,8 +42,7 @@ public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract
 
         String userHtml = getIntent().getExtras().getString("userHtml");
         String classHtml = getIntent().getExtras().getString("classHtml");
-        Log.d("Main create", "Created");
-        HtmlParse.getAccountInformation(userHtml);
+        presenter.loadInfo(userHtml, classHtml);
 
         currentFragment = new HomeFragment();
         getSupportFragmentManager()
@@ -40,6 +50,6 @@ public class MainActivity extends BaseActivity<ActivityHomeBinding, MainContract
                 .replace(HOME_CONTAINER_ID, currentFragment)
                 .commit();
 
-        binding.llBottomNavigation.ivHome.setImageResource(R.drawable.img_home_clicked);
+        binding.includeBottomNavigation.ivHome.setImageResource(R.drawable.img_home_clicked);
     }
 }
